@@ -16,6 +16,9 @@ class Sidenavigation extends React.Component{
 						<li className='li'> 
 							<Link to='/'> Menu Pegawai </Link> 
 						</li>
+						<li className='li'> 
+							<Link to='/auth'> Auth </Link> 
+						</li>
 						<Dropdown title='Menu Pegawai'>
 							<ul className='Dropdown-ul'>
 								<li className='Dropdown-li'>
