@@ -18,6 +18,9 @@ class Topnavigation extends React.Component{
 		return(
 			<Navbar className='Topnavigation'>
 				<NavbarBrand active> Sistem Kepegawaian </NavbarBrand>
+				<span className='Auth-btn' onClick={this.props.signOut}> 
+					Sign Out 
+				</span>
 				{viewSignout}
 			</Navbar>
 		)
