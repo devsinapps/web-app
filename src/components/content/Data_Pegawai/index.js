@@ -87,28 +87,48 @@ class Data_Pegawai extends React.Component{
 			mulaiKerja, 
 			shift
 		}
-
-		this.props.inputPegawai(dataPegawai)
-		this.setState({
-			namaPeg: '',
-			jk: '',
-			ttl: '',
-			agama: '',
-			kewarganegaraan: '',
-			statusPernikahan: '',
-			noHP:'',
-			email: '',
-			noREK: '',
-			username: '',
-			noKTP: '',
-			noSIM: '',
-			noNPWP: '',
-			jabatan: '',
-			golongan: '',
-			status: '',
-			mulaiKerja: '',
-			shift: ''
-		})
+		if( namaPeg.length === 0 || 
+			jk.length === 0 || 
+			ttl.length === 0 || 
+			agama.length === 0 || 
+			kewarganegaraan.length === 0 || 
+			statusPernikahan.length === 0 || 
+			noHP.length === 0 || 
+			email.length === 0 || 
+			noREK.length === 0 || 
+			username.length === 0 || 
+			noKTP.length === 0 || 
+			noSIM.length === 0 || 
+			noNPWP.length === 0 || 
+			jabatan.length === 0 || 
+			golongan.length === 0 || 
+			status.length === 0 || 
+			mulaiKerja.length === 0 || 
+			shift.length === 0){
+			alert('data masih ada yang kosong')
+		}else{
+			this.props.inputPegawai(dataPegawai)
+			this.setState({
+				namaPeg: '',
+				jk: '',
+				ttl: '',
+				agama: '',
+				kewarganegaraan: '',
+				statusPernikahan: '',
+				noHP:'',
+				email: '',
+				noREK: '',
+				username: '',
+				noKTP: '',
+				noSIM: '',
+				noNPWP: '',
+				jabatan: '',
+				golongan: '',
+				status: '',
+				mulaiKerja: '',
+				shift: ''
+			})
+		}
 	}
 	updatePegawai = (e) =>{
 		e.preventDefault();
@@ -222,9 +242,9 @@ class Data_Pegawai extends React.Component{
 		})
 	}
 	render(){
-		// console.log(this.state)
+		console.log(this.state)
 		const { auth, dataPegawai } = this.props
-		const { jkPeg, religionPeg, countries, jabatanPeg, statusPeg, golonganPeg } = this.props
+		const { jkPeg, religionPeg, statusPernikahanPeg, countries, jabatanPeg, statusPeg, golonganPeg } = this.props
 		const { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, jabatan, golongan, status, mulaiKerja, shift}  = this.state
 		const value =  { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, jabatan, golongan, status, mulaiKerja, shift} 
 		if(auth.uid == null) return <Redirect to='/auth' />;
@@ -241,6 +261,7 @@ class Data_Pegawai extends React.Component{
 						<PegawaiForm 
 							jkPeg={jkPeg}
 							religionPeg={religionPeg}
+							statusPernikahanPeg={statusPernikahanPeg}
 							countries={countries}
 							jabatanPeg={jabatanPeg}
 							statusPeg={statusPeg}
@@ -263,6 +284,7 @@ const mapStateToProps = (state) => {
 	return{
 		jkPeg: state.jkPeg,
 		religionPeg: state.religionPeg,
+		statusPernikahanPeg: state.statusPernikahan,
 		countries: state.countries,
 		jabatanPeg: state.jabatanPeg,
 		statusPeg: state.statusPeg,

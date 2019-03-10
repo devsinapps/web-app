@@ -9,27 +9,30 @@ class Sidenavigation extends React.Component{
 		return(
 			<div className='Sidenavigation'>
 				<div className='Menu-nav'>
+					<div className='Title'>
+						<span> Title </span> 
+					</div>
 					<ul>
 						<li className='li'> 
-							<Link to='/'> Menu Pegawai </Link > 
+							<Link to='/'> Menu Pegawai </Link> 
 						</li>
 						<Dropdown title='Menu Pegawai'>
 							<ul className='Dropdown-ul'>
 								<li className='Dropdown-li'>
-									<Link to='/jobdesk'> Jobdesk Pegawai  </Link >  
+									<Link to='/jobdesk'> Jobdesk Pegawai  </Link>  
 								</li>
 							</ul>
 						</Dropdown>
 						<Dropdown title='Menu Admin'>
 							<ul className='Dropdown-ul'>
 								<li className='Dropdown-li'>
-									<Link to='/datapegawai'> Data Pegawai  </Link >  
+									<Link to='/datapegawai'> Data Pegawai  </Link>  
 								</li>
 								<li className='Dropdown-li'>
-									<Link to='/rekrutpegawai'> Data Rekrut Pegawai  </Link >  
+									<Link to='/rekrutpegawai'> Data Rekrut Pegawai  </Link>  
 								</li>
 								<li className='Dropdown-li'>
-									<Link to='/arsiprekruter'> Data Arsip Rekrut  </Link >  
+									<Link to='/arsiprekruter'> Data Arsip Rekrut  </Link>  
 								</li>
 							</ul>
 						</Dropdown>

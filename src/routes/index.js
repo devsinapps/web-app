@@ -11,6 +11,13 @@ import Data_Pegawai from './../components/content/Data_Pegawai'
 import Data_Rekrut_Pegawai from './../components/content/Data_Rekrut_Pegawai' 
 import Data_Arsip_Rekruter from './../components/content/Data_Arsip_Rekruter' 
 import Data_Jobdesk_Pegawai from './../components/content/Data_Jobdesk_Pegawai' 
+
+//Fontawesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleRight, faTimes, faMinus } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faAngleRight, faTimes, faMinus)
 class Routes extends React.Component{
 	render(){
 		return(

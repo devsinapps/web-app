@@ -10,6 +10,13 @@ const religionPeg = [
 	'Budha',
 ];
 
+const statusPernikahan = [
+  'Belum Menikah',
+  'Duda',
+  'Janda',
+  'Menikah'
+]
+
 const countries = [
     {
       "country": "Afghanistan",
@@ -818,6 +825,10 @@ export const jkReducer = ( state = jkPeg, action ) => {
 
 export const religionReducer = ( state = religionPeg, action ) => {
 	return state
+}
+
+export const statusPernikahanReducer = ( state = statusPernikahan, action ) => {
+  return state
 }
 
 export const countriesReducer = ( state = countries, action ) => {

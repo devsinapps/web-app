@@ -5,9 +5,10 @@ import { Row, Col, Form, FormGroup, Label, Input, CustomInput, Button } from 're
 class PegawaiForm extends React.Component{
 	render(){
 		const { value } = this.props
-		const { jkPeg, religionPeg, countries, jabatanPeg, statusPeg, golonganPeg } = this.props
+		const { jkPeg, religionPeg,statusPernikahanPeg, countries, jabatanPeg, statusPeg, golonganPeg } = this.props
 		const checkedShiftT = value.shift === 't' ? 'checked' : '';
 		const checkedShiftF = value.shift === 'f' ? 'checked' : '';
+		const enabled = value.idPeg !== '';
 		return(
 			<Form>
 				<Row form>
@@ -84,11 +85,14 @@ class PegawaiForm extends React.Component{
 					<Col lg='4'>
 						<FormGroup>
 							<Label htmlFor='statusPernikahan'> Status Pernikahan </Label>
-							<Input 
-								id='statusPernikahan'
-								value={value.statusPernikahan}
-								onChange={this.props.onChange}
-							/>
+							<CustomInput type='select' id='statusPernikahan' onChange={this.props.onChange}>
+								<option value={value.statusPernikahan}> {value.statusPernikahan} </option>
+								{statusPernikahanPeg.map((statusPernikahan)=>{
+									return(
+										<option value={statusPernikahan}> {statusPernikahan} </option>
+									)
+								})}
+							</CustomInput>
 						</FormGroup>
 					</Col>
 					<Col lg='4'>
@@ -224,9 +228,9 @@ class PegawaiForm extends React.Component{
 					</Col>
 				</Row>
 				<FormGroup className='text-center'>
-					<Button color='primary' onClick={this.props.inputPegawai}> Simpan </Button> {' '}
-					<Button color='warning' onClick={this.props.updatePegawai}> Ubah </Button> {' '}
-					<Button color='danger' onClick={this.props.deletePegawai}> Hapus </Button> {' '}
+					<Button color='primary' onClick={this.props.inputPegawai} disabled={enabled}> Simpan </Button> {' '}
+					<Button color='warning' onClick={this.props.updatePegawai} disabled={!enabled}> Ubah </Button> {' '}
+					<Button color='danger' onClick={this.props.deletePegawai} disabled={!enabled}> Hapus </Button> {' '}
 					<Button color='info' onClick={this.props.resetForm}> Reset </Button> {' '}
 				</FormGroup>
 			</Form>
