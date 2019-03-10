@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css?family=Muli');
+html{
+	body{
+		position: relative;
+		background-color: #ffffff;
+		#root{
+			#Routes{
+				.Topnavigation{
+					position: fixed;
+					left: 200px;
+					right: 0;
+					height: 60px;
+					background-color: #f1f2f6;
+					z-index: 1;
+					box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+					.navbar-brand{
+
+					}
+					.Auth-btn{
+						position: absolute;
+						right: 10px;
+						a{
+							&:hover{
+								text-decoration: none;
+							}
+						}
+					}
+				}
+				.Sidenavigation{
+					position: relative;
+					.Menu-nav{
+						position: fixed;
+						width: 200px;
+						height: 100vh;
+						background-color: #f1f2f6;
+						box-shadow: 0px 0px 2px rgba(0,0,0,.4);
+						ul{
+							font-size: 15px;
+							font-family: 'Muli', sans-serif;
+							list-style-type: none;
+							margin: 0;
+							padding: 0;
+							.li{
+								height: 50px;
+								padding-left: 10px;
+								&:hover{
+									background-color: salmon;
+								}
+								a{
+									line-height: 50px;
+									cursor: pointer;
+									&:hover{
+										text-decoration: none;
+									}
+								}
+							}
+							.Dropdown-nav{
+								.Dropdown-li-title{
+									height: 50px;
+									padding-left: 10px;
+									&:hover{
+										background-color: salmon;
+									}
+									span{
+										line-height: 50px;
+										cursor: pointer;
+									}
+								}
+								.Dropdown-menu{
+									.Menu{
+										.Dropdown-ul{
+											.Dropdown-li{
+												height: 50px;
+												padding-left: 20px;
+												&:hover{
+													background-color: salmon;
+												}
+												a{
+													line-height: 50px;
+													cursor: pointer;
+													&:hover{
+														text-decoration: none;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				.Content{
+					position: absolute;
+					top: 75px;
+					left: 200px;
+					right: 0;
+					.Loading{
+						margin-top: 15%;
+						text-align: center;
+						img{
+							height: 50px;
+							width: 50px;
+							animation: spinner infinite linear 3s;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes spinner {
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Muli");
+html body {
+  position: relative;
+  background-color: #ffffff; }
+  html body #root #Routes .Topnavigation {
+    position: fixed;
+    left: 200px;
+    right: 0;
+    height: 60px;
+    background-color: #f1f2f6;
+    z-index: 1;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
+    html body #root #Routes .Topnavigation .Auth-btn {
+      position: absolute;
+      right: 10px; }
+      html body #root #Routes .Topnavigation .Auth-btn a:hover {
+        text-decoration: none; }
+  html body #root #Routes .Sidenavigation {
+    position: relative; }
+    html body #root #Routes .Sidenavigation .Menu-nav {
+      position: fixed;
+      width: 200px;
+      height: 100vh;
+      background-color: #f1f2f6;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4); }
+      html body #root #Routes .Sidenavigation .Menu-nav ul {
+        font-size: 15px;
+        font-family: 'Muli', sans-serif;
+        list-style-type: none;
+        margin: 0;
+        padding: 0; }
+        html body #root #Routes .Sidenavigation .Menu-nav ul .li {
+          height: 50px;
+          padding-left: 10px; }
+          html body #root #Routes .Sidenavigation .Menu-nav ul .li:hover {
+            background-color: salmon; }
+          html body #root #Routes .Sidenavigation .Menu-nav ul .li a {
+            line-height: 50px;
+            cursor: pointer; }
+            html body #root #Routes .Sidenavigation .Menu-nav ul .li a:hover {
+              text-decoration: none; }
+        html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-li-title {
+          height: 50px;
+          padding-left: 10px; }
+          html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-li-title:hover {
+            background-color: salmon; }
+          html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-li-title span {
+            line-height: 50px;
+            cursor: pointer; }
+        html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-menu .Menu .Dropdown-ul .Dropdown-li {
+          height: 50px;
+          padding-left: 20px; }
+          html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-menu .Menu .Dropdown-ul .Dropdown-li:hover {
+            background-color: salmon; }
+          html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-menu .Menu .Dropdown-ul .Dropdown-li a {
+            line-height: 50px;
+            cursor: pointer; }
+            html body #root #Routes .Sidenavigation .Menu-nav ul .Dropdown-nav .Dropdown-menu .Menu .Dropdown-ul .Dropdown-li a:hover {
+              text-decoration: none; }
+  html body #root #Routes .Content {
+    position: absolute;
+    top: 75px;
+    left: 200px;
+    right: 0; }
+    html body #root #Routes .Content .Loading {
+      margin-top: 15%;
+      text-align: center; }
+      html body #root #Routes .Content .Loading img {
+        height: 50px;
+        width: 50px;
+        animation: spinner infinite linear 3s; }
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
