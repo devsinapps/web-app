@@ -29,15 +29,30 @@ class Auth extends React.Component{
 	}
 	render(){
 		const { authCase } = this.state
+ 		//Props from mapProps
 		const { auth } = this.props
-		const authView = authCase === 1 ? <SignIn /> : <SignUp />;
+		const authView = authCase === 1 ? <SignIn idViewMenu={this.props.idViewMenu} handleChangeView={this.props.handleChangeView}/> : <SignUp />;
 		const btnSignOut = auth.uid != null ? 'block' : 'none';
+		const style = {
+			btnSignIn: {
+				backgroundColor: '#ffffff',
+				border: '1px solid #3c40c6',
+				color: '#3c40c6',
+				boxShadow: 'none'
+			},
+			btnSignUp: {
+				backgroundColor: '#ffffff',
+				border: '1px solid #05c46b',
+				color: '#05c46b',
+				boxShadow: 'none'
+			}
+		}
 		if(auth.uid != null) return <Redirect to='/'/>; 
 		return(
 			<div className='Auth'>
 				<div className='text-center'>
-					<Button onClick={this.signInCase}> Sign In </Button>{' '}
-					<Button onClick={this.signUpCase}> Sign Up </Button>{' '}
+					<Button onClick={this.signInCase} style={style.btnSignIn}> Sign In </Button>{' '}
+					<Button onClick={this.signUpCase} style={style.btnSignUp}> Sign Up </Button>{' '}
 				</div>
 				<br />
 				<ContainerRow>

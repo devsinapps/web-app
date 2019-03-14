@@ -96,6 +96,7 @@ class Data_Jobdesk_Pegawai extends React.Component{
 }
 
 const mapStateToProps = (state) => {
+	console.log(state)
 	return{
 		auth: state.firebase.auth,
 		data_jobdesk_pegawai: state.firestore.ordered.data_jobdesk_pegawai,

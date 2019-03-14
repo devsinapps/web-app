@@ -40,70 +40,76 @@ export class ColCard extends React.Component{
 		const currentHeight = isExpanded ? '0' :  height + +'50';
 		const currentDisplay = isClose ? 'none' : 'block';
 		const currentOpacity = isExpanded ? '0' : '1';
-		const styleCard = {
-			display: currentDisplay
+		const style = {
+			styleCard: {
+				display: currentDisplay
+			},
+			styleHeader: {
+				position: 'relative',
+				height: '50px'
+			},
+			styleBody: {
+				overflow: 'hidden',
+				transition: 'all .2s',
+				opacity: currentOpacity,
+				height: currentHeight + 'px'
+			},
+			styleBtn: {
+				position: 'absolute',
+				right: '8px',
+				top: '10px'
+			},
+			styleMin: {
+				cursor: 'pointer',
+				height: '10px',
+				width: '10px',
+				marginRight: '5px',
+				fontSize: '10px',
+				padding: '2px',
+				borderRadius: '50%',
+				textAlign: 'center',
+				backgroundColor: '#3ae374'
+			},
+			styleClose: {
+				cursor: 'pointer',
+				height: '10px',
+				width: '10px',
+				marginRight: '5px',
+				fontSize: '10px',
+				padding: '2px',
+				borderRadius: '50%',
+				textAlign: 'center',
+				backgroundColor: '#ff4d4d'
+			},
+			svgStyle: {
+				position: 'relative',
+				color: '#fdfdfd',
+				top: '1px',
+				left: '0px'
+			}
 		}
-		const styleHeader = {
-			position: 'relative',
-			height: '50px'
-		}
-		const styleBody = {
-			overflow: 'hidden',
-			transition: 'all .2s',
-			opacity: currentOpacity,
-			height: currentHeight + 'px'
-		}
-
-		const styleBtn = {
-			position: 'absolute',
-			right: '8px',
-			top: '10px',
-		}
-		const styleMin = {
-			cursor: 'pointer',
-			height: '10px',
-			width: '10px',
-			marginRight: '5px',
-			fontSize: '10px',
-			padding: '2px',
-			borderRadius: '50%',
-			textAlign: 'center',
-			backgroundColor: '#3ae374'
-		}
-
-		const styleClose = {
-			cursor: 'pointer',
-			height: '10px',
-			width: '10px',
-			marginRight: '5px',
-			fontSize: '10px',
-			padding: '2px',
-			borderRadius: '50%',
-			textAlign: 'center',
-			backgroundColor: '#ff4d4d'
-		}
-
-		const svgStyle = {
-			position: 'relative',
-			color: '#fdfdfd',
-			top: '1px',
-			left: '0px'
-		}
+		const viewHeader = tlCard === '' ? 
+		null 
+		: 
+		(
+			<CardHeader style={style.styleHeader}> 
+				{tlCard}
+				<div className='btn-toggle' style={style.styleBtn}>
+					<span style={style.styleMin} onClick={this.toggleSlider}>
+						<FontAwesomeIcon icon='minus' style={style.svgStyle}/> 
+					</span> 
+					<span style={style.styleClose} onClick={this.toggleDisplay}>
+						<FontAwesomeIcon icon='times' style={style.svgStyle}/> 
+					</span> 
+				</div>
+			</CardHeader>
+		)
+		;
 		return(
 			<Col lg={lgCol} md={mdCol} sm={smCol} xs={xsCol} className={colClass}>
-				<Card className={brCard} style={styleCard}>
-					<CardHeader style={styleHeader}> 
-						{tlCard}
-						<div className='btn-toggle' style={styleBtn}>
-							<span style={styleMin} onClick={this.toggleSlider}>
-								<FontAwesomeIcon icon='minus' style={svgStyle}/> 
-							</span> 
-							<span style={styleClose} onClick={this.toggleDisplay}>
-								<FontAwesomeIcon icon='times' style={svgStyle}/> 
-							</span> 
-						</div>
-					</CardHeader>
-					<CardBody style={styleBody}>
+				<Card className={brCard} style={style.styleCard}>
+					{viewHeader}
+					<CardBody style={style.styleBody}>
 						<div className='card-content' ref='inner'>
 						{children}
 						</div>

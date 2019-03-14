@@ -45,6 +45,7 @@ export const signUp = (dataUser) => {
 				username: dataUser.username,
 				email: dataUser.email,
 				phone: dataUser.phone,
+				division:  dataUser.division,
 				position: dataUser.position,
 				gender: dataUser.gender,
 				initials: dataUser.firstName[0]+ dataUser.lastName[0],
@@ -58,6 +59,25 @@ export const signUp = (dataUser) => {
 		}).catch((err)=>{
 			dispatch({
 				type: "SIGNUP_GAGAL",
+				err
+			})
+		})
+	}
+}
+
+export const updateViewMenu = (viewMenuUser) => {
+	return(dispatch, getState, {getFirestore})=>{
+		const firestore = getFirestore();
+		const id = 'DasWuOrc8PFSLDzzjAjH';
+		firestore.collection('menuView').doc(id).set({
+			menu: viewMenuUser
+		}).then(()=>{
+			dispatch({
+				type: "UPDATE_VIEW_MENU"
+			})
+		}).catch((err)=>{
+			dispatch({
+				type: "UPDATE_VIEW_MENU_FAIL",
 				err
 			})
 		})

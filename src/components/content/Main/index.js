@@ -35,7 +35,7 @@ class Data_Pegawai extends React.Component{
 			return(
 				<div className='Data_Pegawai'>
 					<ContainerRow>
-						<ColCard lgCol='4' mdCol='4' smCol='4' xsCol='4' colClass='' brCard='mb-3' tlCard='Profile'>
+						<ColCard lgCol='4' mdCol='4' smCol='4' xsCol='4' colClass='' brCard='mb-3' tlCard=''>
 							<CardTitle> {profile.firstName + ' ' + profile.lastName} </CardTitle>
 							<ul>
 								<li> Position: {profile.position} </li>

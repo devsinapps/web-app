@@ -28,6 +28,7 @@ class Data_Pegawai extends React.Component{
 		noKTP: '',
 		noSIM: '',
 		noNPWP: '',
+		bagian: '',
 		jabatan: '',
 		golongan: '',
 		status: '',
@@ -57,6 +58,7 @@ class Data_Pegawai extends React.Component{
 			noKTP: pegawai.noKTP,
 			noSIM: pegawai.noSIM,
 			noNPWP: pegawai.noNPWP,
+			bagian:  pegawai.bagian,
 			jabatan: pegawai.jabatan,
 			golongan: pegawai.golongan,
 			status: pegawai.status,
@@ -66,7 +68,7 @@ class Data_Pegawai extends React.Component{
 	}
 	inputPegawai = (e) => {
 		e.preventDefault();
-		const { namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, jabatan, golongan, status, mulaiKerja, shift}  = this.state 
+		const { namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, bagian, jabatan, golongan, status, mulaiKerja, shift}  = this.state 
 		const dataPegawai = {
 			namaPeg, 
 			jk, 
@@ -81,6 +83,7 @@ class Data_Pegawai extends React.Component{
 			noKTP, 
 			noSIM, 
 			noNPWP, 
+			bagian,
 			jabatan, 
 			golongan, 
 			status, 
@@ -100,6 +103,7 @@ class Data_Pegawai extends React.Component{
 			noKTP.length === 0 || 
 			noSIM.length === 0 || 
 			noNPWP.length === 0 || 
+			bagian.length === 0 ||
 			jabatan.length === 0 || 
 			golongan.length === 0 || 
 			status.length === 0 || 
@@ -122,6 +126,7 @@ class Data_Pegawai extends React.Component{
 				noKTP: '',
 				noSIM: '',
 				noNPWP: '',
+				bagian: '',
 				jabatan: '',
 				golongan: '',
 				status: '',
@@ -132,7 +137,7 @@ class Data_Pegawai extends React.Component{
 	}
 	updatePegawai = (e) =>{
 		e.preventDefault();
-		const { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, jabatan, golongan, status, mulaiKerja, shift}  = this.state 
+		const { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, bagian, jabatan, golongan, status, mulaiKerja, shift}  = this.state 
 		const dataPegawai = {
 			idPeg,
 			noPeg,
@@ -149,6 +154,7 @@ class Data_Pegawai extends React.Component{
 			noKTP, 
 			noSIM, 
 			noNPWP, 
+			bagian,
 			jabatan, 
 			golongan, 
 			status, 
@@ -175,6 +181,7 @@ class Data_Pegawai extends React.Component{
 				noKTP: '',
 				noSIM: '',
 				noNPWP: '',
+				bagian: '',
 				jabatan: '',
 				golongan: '',
 				status: '',
@@ -207,6 +214,7 @@ class Data_Pegawai extends React.Component{
 				noKTP: '',
 				noSIM: '',
 				noNPWP: '',
+				bagian: '',
 				jabatan: '',
 				golongan: '',
 				status: '',
@@ -234,6 +242,7 @@ class Data_Pegawai extends React.Component{
 			noKTP: '',
 			noSIM: '',
 			noNPWP: '',
+			bagian: '',
 			jabatan: '',
 			golongan: '',
 			status: '',
@@ -245,8 +254,8 @@ class Data_Pegawai extends React.Component{
 		console.log(this.state)
 		const { auth, dataPegawai } = this.props
 		const { jkPeg, religionPeg, statusPernikahanPeg, countries, jabatanPeg, statusPeg, golonganPeg } = this.props
-		const { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, jabatan, golongan, status, mulaiKerja, shift}  = this.state
-		const value =  { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, jabatan, golongan, status, mulaiKerja, shift} 
+		const { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, bagian, jabatan, golongan, status, mulaiKerja, shift}  = this.state
+		const value =  { idPeg, noPeg, namaPeg, jk, ttl, agama, kewarganegaraan, statusPernikahan, noHP, email, noREK, username, noKTP, noSIM, noNPWP, bagian, jabatan, golongan, status, mulaiKerja, shift} 
 		if(auth.uid == null) return <Redirect to='/auth' />;
 		return(
 			<div className='Data_Pegawai'>

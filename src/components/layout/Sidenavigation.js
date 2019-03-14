@@ -1,11 +1,21 @@
 import React from 'react'
 //Tools
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 //Component
 import Dropdown from './Dropdown'
-
+import { AdminView, Marketing, Finance, Akunting, HCSM} from './MenuView'
 class Sidenavigation extends React.Component{
 	render(){
+		//props from routes
+		const { menuViewUser } = this.props
+		//props from mapPorps
+		const { profile } = this.props 
+		const viewMenuUser = profile.level === 1 ? <AdminView /> : null ||
+							 menuViewUser == 'Marketing' && profile.division == 'Marketing' ? <Marketing /> : null || 
+							 menuViewUser == 'Finance' && profile.division == 'Finance' ? <Finance /> : null ||
+						  	 menuViewUser == 'Akunting' && profile.division == 'Akunting' ? <Akunting /> : null || 
+						  	 menuViewUser == 'HCSM' && profile.division == 'HCSM' ? <HCSM /> : null;
 		return(
 			<div className='Sidenavigation'>
 				<div className='Menu-nav'>
@@ -14,31 +24,9 @@ class Sidenavigation extends React.Component{
 					</div>
 					<ul>
 						<li className='li'> 
-							<Link to='/'> Menu Pegawai </Link> 
+							<Link to='/'> Dashboard </Link> 
 						</li>
-						<li className='li'> 
-							<Link to='/auth'> Auth </Link> 
-						</li>
-						<Dropdown title='Menu Pegawai'>
-							<ul className='Dropdown-ul'>
-								<li className='Dropdown-li'>
-									<Link to='/jobdesk'> Jobdesk Pegawai  </Link>  
-								</li>
-							</ul>
-						</Dropdown>
-						<Dropdown title='Menu Admin'>
-							<ul className='Dropdown-ul'>
-								<li className='Dropdown-li'>
-									<Link to='/datapegawai'> Data Pegawai  </Link>  
-								</li>
-								<li className='Dropdown-li'>
-									<Link to='/rekrutpegawai'> Data Rekrut Pegawai  </Link>  
-								</li>
-								<li className='Dropdown-li'>
-									<Link to='/arsiprekruter'> Data Arsip Rekrut  </Link>  
-								</li>
-							</ul>
-						</Dropdown>
+						{viewMenuUser}
 					</ul>
 				</div>
 				<div className='Toggle-nav'>
@@ -48,4 +36,10 @@ class Sidenavigation extends React.Component{
 	}
 }
 
-export default Sidenavigation
+const mapStateToProps = (state) => {
+	return{
+		profile: state.firebase.profile
+	}
+}
+
+export default connect(mapStateToProps)(Sidenavigation)

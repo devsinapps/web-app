@@ -2,11 +2,12 @@ import React from 'react'
 //Tools
 import { connect } from 'react-redux'
 //Reactstrap
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Form, FormGroup, Label, Input, CustomInput, Button } from 'reactstrap'
 //Actions
-import { signIn } from './../../../../store/actions/authActions'
+import { signIn, updateViewMenu } from './../../../../store/actions/authActions'
 class SignIn extends React.Component{
 	state = {
+		viewMenuUser: '',
 		email: '',
 		password: ''
 	}
@@ -19,11 +20,30 @@ class SignIn extends React.Component{
 
 	signIn = (e) => {
 		e.preventDefault();
-		this.props.signIn(this.state)
+		const { email, password } = this.state
+		const { viewMenuUser } = this.state
+		const credentials = {
+			email,
+			password
+		}
+		this.props.signIn(credentials)
+		this.props.updateViewMenu(viewMenuUser)
 	}
 	render(){
+		const { systemMenu } = this.props
 		return(
 			<Form onSubmit={this.signIn}>
+				<FormGroup>
+					<Label htmlFor='viewMenuUser'> Portal </Label>
+					<CustomInput type='select' id='viewMenuUser' onChange={this.onChange}>
+						<option value='admin'> Pilih Portal </option>
+						{systemMenu.map((menu)=>{
+							return(
+								<option value={menu}> {menu} </option>
+							)
+						})}
+					</CustomInput>
+				</FormGroup>
 				<FormGroup>
 					<Label htmlFor='email'> Email </Label>
 					<Input
@@ -50,13 +70,14 @@ class SignIn extends React.Component{
 
 const mapStateToProps = (state) => {
 	return{
-
+		systemMenu: state.systemMenu
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return{
-		signIn: (credentials) => dispatch(signIn(credentials))
+		signIn: (credentials) => dispatch(signIn(credentials)),
+		updateViewMenu: (viewMenuUser) => dispatch(updateViewMenu(viewMenuUser))
 	}
 }
 

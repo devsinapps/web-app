@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { firestoreReducer } from 'redux-firestore'
 import { firebaseReducer } from 'react-redux-firebase'
-import { jkReducer, religionReducer, statusPernikahanReducer, countriesReducer, jabatanReducer, statusReducer, golonganReducer } from './dataReducer'
+import { jkReducer, religionReducer, statusPernikahanReducer, systemMenuReducer, countriesReducer, jabatanReducer, statusReducer, golonganReducer } from './dataReducer'
 import authReducer from './authReducer'
 import dataPegawaiReducer from './dataPegawaiReducer'
 import dataRekruterPegawaiReducer from './dataRekruterPegawaiReducer'
@@ -11,6 +11,7 @@ const rootReducers = combineReducers({
 	jkPeg: jkReducer,
 	religionPeg: religionReducer,
 	statusPernikahan: statusPernikahanReducer,
+	systemMenu: systemMenuReducer,
 	countries: countriesReducer,
 	jabatanPeg: jabatanReducer,
 	statusPeg: statusReducer,

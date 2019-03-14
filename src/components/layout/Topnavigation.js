@@ -9,6 +9,7 @@ import { signOut } from './../../store/actions/authActions'
 class Topnavigation extends React.Component{
 	render(){
 		const { auth } = this.props
+		const classBAuth = auth.uid != null ? null : 'beforeAuth';
 		const viewSignout = auth.uid != null ? 
 							<span className='Auth-btn' onClick={this.props.signOut}> 
 								Sign Out 
@@ -16,11 +17,8 @@ class Topnavigation extends React.Component{
 							:
 							null;
 		return(
-			<Navbar className='Topnavigation'>
-				<NavbarBrand active> Sistem Kepegawaian </NavbarBrand>
-				<span className='Auth-btn' onClick={this.props.signOut}> 
-					Sign Out 
-				</span>
+			<Navbar className={'Topnavigation' + ' ' + classBAuth}>
+				<NavbarBrand active> Web App </NavbarBrand>
 				{viewSignout}
 			</Navbar>
 		)

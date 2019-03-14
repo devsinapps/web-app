@@ -39,6 +39,20 @@ const authReducer = (state = initState, action) => {
 				authError: 'SIGNUP_GAGAL'
 			}
 
+		case "UPDATE_VIEW_MENU":
+			console.log("UPDATE_VIEW_MENU")
+			return{
+				...state,
+				authError: ''
+			}
+
+		case "UPDATE_VIEW_MENU_FAIL":
+			console.log("UPDATE_VIEW_MENU_FAIL")
+			return{
+				...state,
+				authError: 'UPDATE_VIEW_MENU_FAIL'
+			}
+
 		default:
 			return state
 	}

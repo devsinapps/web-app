@@ -3,7 +3,17 @@ import React from 'react'
 //Reactstrap
 import { Row, Col, Form, FormGroup, Label, Input, CustomInput, Button } from 'reactstrap'
 class PegawaiForm extends React.Component{
+	state = {
+		getPosition: []
+	}
+
+	getPosition = (jbtn) => {
+		this.setState({
+			getPosition: jbtn.position
+		})
+	}
 	render(){
+		const { getPosition } = this.state
 		const { value } = this.props
 		const { jkPeg, religionPeg,statusPernikahanPeg, countries, jabatanPeg, statusPeg, golonganPeg } = this.props
 		const checkedShiftT = value.shift === 't' ? 'checked' : '';
@@ -167,12 +177,25 @@ class PegawaiForm extends React.Component{
 					</Col>
 					<Col lg='4'>
 						<FormGroup>
-							<Label htmlFor='jabatan'> Jabatan </Label>
-							<CustomInput type='select' id='jabatan' onChange={this.props.onChange}>
-								<option value={value.jabatan}> {value.jabatan} </option>
+							<Label htmlFor='bagian'> Bagian </Label>
+							<CustomInput type='select' id='bagian' onChange={this.props.onChange}>
+								<option value={value.bagian}> {value.bagian} </option>
 								{jabatanPeg.map((jbtn)=>{
 									return(
-										<option value={jbtn}> {jbtn} </option>
+										<option value={jbtn.division} onClick={() => this.getPosition(jbtn)}> {jbtn.division} </option>
+									)
+								})}
+							</CustomInput>
+						</FormGroup>
+					</Col>
+					<Col lg='4'>
+						<FormGroup>
+							<Label htmlFor='jabatan'> jabatan </Label>
+							<CustomInput type='select' id='jabatan' onChange={this.props.onChange}>
+								<option value={value.jabatan}> {value.jabatan} </option>
+								{getPosition.map((pstn)=>{
+									return(
+										<option value={pstn}> {pstn} </option>
 									)
 								})}
 							</CustomInput>

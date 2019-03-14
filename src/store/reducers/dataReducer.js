@@ -17,6 +17,14 @@ const statusPernikahan = [
   'Menikah'
 ]
 
+const systemMenu = [
+  'Marketing',
+  'Finance',
+  'Akunting',
+  'HCSM'
+]
+
+
 const countries = [
     {
       "country": "Afghanistan",
@@ -785,22 +793,26 @@ const countries = [
 ];
 
 const jabatanPeg = [
-  'Direktur Utama',
-  'Direktur 1',
-  'Direktur 2',
-  'Sekretaris',
-  'Kadiv Marketing',
-  'Kadiv Akunting',
-  'Kadiv Finance',
-  'Kadiv HCSM',
-  'Kabag Marketing',
-  'Kabag Akunting',
-  'Kabag Finance',
-  'Kabag IT',
-  'Staff Marketing',
-  'Staff Akunting',
-  'Staff Finance',
-  'Staff IT'
+  {
+    division: 'Direksi',
+    position: ['Direktur Utama', 'Direktur 1', 'Direktur 2', 'Sekretaris']
+  },
+  {
+    division: 'Marketing',
+    position: ['Kadiv Marketing', 'Kabag Marketing', 'Staff Marketing']
+  },
+  {
+    division: 'Akunting',
+    position: ['Kadiv Akunting', 'Kabag Akunting', 'Staff Akunting']
+  },
+  {
+    division: 'Finance',
+    position: ['Kadiv Finance', 'Kabag Finance', 'Staff Finance']
+  },
+  {
+    division: 'HCSM',
+    position: ['Kadiv HCSM', 'Kabag IT', 'Staff IT']
+  }
 ]
 
 const statusPeg = [
@@ -825,6 +837,10 @@ export const jkReducer = ( state = jkPeg, action ) => {
 
 export const religionReducer = ( state = religionPeg, action ) => {
 	return state
+}
+
+export const systemMenuReducer = ( state = systemMenu, action ) => {
+  return state
 }
 
 export const statusPernikahanReducer = ( state = statusPernikahan, action ) => {
